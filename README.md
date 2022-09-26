@@ -1,1 +1,1 @@
-# part-time-syn
+# Part Time Syn
