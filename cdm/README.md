@@ -1,6 +1,8 @@
 
 # **CDM DASHBOARD**
 
+ `<Log-time>` : *<https://github.com/nhphuc2210/part-time-syn/blob/main/cdm/log-time.csv>*
+
 ## **Agenda**
 <br />
 
