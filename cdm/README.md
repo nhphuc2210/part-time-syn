@@ -27,7 +27,7 @@
 
 <br />
 
-## **Raw data reuquirements:**
+## **Raw data requirements:**
 
 <br />
 
