@@ -1,2 +1,3 @@
-﻿start_time,end_time,working _time,remark,,,Now = 2022-09-27 00:24:10
-2022-09-26 22:30,2022-09-26 23:30,1:00,"review workflow, add template",,,
+﻿start_time,end_time,working _time,remark,url,,
+2022-09-26 22:30,2022-09-26 23:30,1:00,"review workflow, add template",https://avenzacorp.sharepoint.com/sites/BAS/Shared%20Documents/Forms/AllItems.aspx?newTargetListUrl=%2Fsites%2FBAS%2FShared%20Documents&viewpath=%2Fsites%2FBAS%2FShared%20Documents%2FForms%2FAllItems%2Easpx&id=%2Fsites%2FBAS%2FShared%20Documents%2F4%2ECDM%2Fdata%2Drequirements&viewid=05531855%2Dcc88%2D4850%2D933d%2D3c26c176b1a0,,
+2022-09-27 10:25,,,repare python script to ingest raw data to snowflake,,,
