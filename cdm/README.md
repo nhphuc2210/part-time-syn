@@ -33,7 +33,11 @@
 
 <br />
 
- `<link>` : *<https://avenzacorp.sharepoint.com/sites/BAS/Shared%20Documents/Forms/AllItems.aspx?newTargetListUrl=%2Fsites%2FBAS%2FShared%20Documents&viewpath=%2Fsites%2FBAS%2FShared%20Documents%2FForms%2FAllItems%2Easpx&id=%2Fsites%2FBAS%2FShared%20Documents%2F4%2ECDM%2Fdata%2Drequirements&viewid=05531855%2Dcc88%2D4850%2D933d%2D3c26c176b1a0>*
+ `<data need to import>` : *<https://avenzacorp.sharepoint.com/sites/BAS/Shared%20Documents/Forms/AllItems.aspx?newTargetListUrl=%2Fsites%2FBAS%2FShared%20Documents&viewpath=%2Fsites%2FBAS%2FShared%20Documents%2FForms%2FAllItems%2Easpx&id=%2Fsites%2FBAS%2FShared%20Documents%2F4%2ECDM%2Fdata%2Drequirements&viewid=05531855%2Dcc88%2D4850%2D933d%2D3c26c176b1a0>*
+
+<br />
+
+`<requirements>` *<https://avenzacorp.sharepoint.com/:p:/r/sites/RegionalCDM/_layouts/15/Doc.aspx?sourcedoc=%7BD3F23E61-A480-4A91-AD06-4C99848D2BFC%7D&file=BAS%20CDM%20Dashboard%20Wireframe.pptx&action=edit&mobileredirect=true&DefaultItemOpen=1>*
 
 <br />
 
