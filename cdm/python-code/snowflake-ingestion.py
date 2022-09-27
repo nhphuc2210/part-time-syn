@@ -20,6 +20,75 @@ import logging
 # # Snowflake
 #
 
+from office365.runtime.auth.user_credential import UserCredential
+from office365.sharepoint.client_context import ClientContext
+
+def download_from_sharepoint(account_sharepoint, pwsd_sharepoint, site_url, file_name, file_path, download_to):
+    try:
+        ctx = ClientContext(site_url).with_credentials(UserCredential(account_sharepoint, pwsd_sharepoint))
+        _file = open(download_to, "wb")
+        ctx.web.get_file_by_server_relative_path(file_path).download(
+                _file
+            ).execute_query()
+        print(f"====Downloaded Source File for {file_name}====")
+        _file.close()
+    except Exception as e:
+        print(e)
+        input("Cannot download. Press any key to exit.")
+
+def create_folder_if_not_exists(folder):
+    if not os.path.exists(folder):
+        os.makedirs(folder)
+ 
+def del_file_in_folder(folder):
+    for filename in os.listdir(folder):
+        file_path = os.path.join(folder, filename)
+        try:
+            if os.path.isfile(file_path) or os.path.islink(file_path):
+                os.unlink(file_path)
+            elif os.path.isdir(file_path):
+                shutil.rmtree(file_path)
+        except Exception as e:
+            print('Failed to delete %s. Reason: %s' % (file_path, e))
+
+def ask__yes_no(mess):
+    while True:
+        answer = input('\n\t{} y/n: '.format(mess))
+        if answer in ('y','n'):
+            break
+        else:
+            print("\tInvalid input")
+    return answer
+
+
+report_folder__ces = 'c:/bas_report/ces/'
+create_folder_if_not_exists(report_folder__ces)
+del_file_in_folder(report_folder__ces)
+ 
+import_snowflake = 'C:/import_snowflake'
+create_folder_if_not_exists(report_folder__ces)
+
+
+site_url = "https://avenzacorp.sharepoint.com/sites/synagie_pcs_regional/"
+account_sharepoint = input("Pls input your company account ex. phucnguyen@synagie.com: ")
+pwsd_sharepoint = input("Pls input your password: ")
+
+
+answer = ask__yes_no("Do you want do re-download from sharepoint? ")
+if answer == 'y':
+   
+    download_folder = 'c:/download_sharepoint/ces/'
+    create_folder_if_not_exists(download_folder)    
+    del_file_in_folder(download_folder)
+ 
+    for file_name in (sp_files):
+        print(f'{file_name} is downloading...')
+        download_to = os.path.join(download_folder, file_name)
+        file_path = sp_files[file_name]['path']
+        download_from_sharepoint(account_sharepoint, pwsd_sharepoint, site_url, file_name, file_path, download_to)
+
+
+
 # In[2]:
 
 
