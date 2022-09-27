@@ -2,4 +2,5 @@
 2022-09-26 22:30,2022-09-26 23:30,01:00,"review workflow, add template",https://avenzacorp.sharepoint.com/sites/BAS/Shared%20Documents/Forms/AllItems.aspx?newTargetListUrl=%2Fsites%2FBAS%2FShared%20Documents&viewpath=%2Fsites%2FBAS%2FShared%20Documents%2FForms%2FAllItems%2Easpx&id=%2Fsites%2FBAS%2FShared%20Documents%2F4%2ECDM%2Fdata%2Drequirements&viewid=05531855%2Dcc88%2D4850%2D933d%2D3c26c176b1a0
 2022-09-27 10:25,2022-09-27 10:40,,consolidated script py (download - ingest),
 2022-09-27 12:55,2022-09-27 15:01,,fix download files from sharepoints,https://github.com/nhphuc2210/part-time-syn/blob/main/cdm/python-code/download-from-sharepoints--testing.py
-2022-09-27 19:36,,,add data into template table,
+2022-09-27 19:36,2022-09-27 20:34,,add data into template table - done weekly data testing for 2 region x 5 weeks,
+2022-09-27 20:51,,,add other data,
