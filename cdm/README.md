@@ -60,4 +60,6 @@ Part 3: https://www.loom.com/share/d8dd6d85c9a24c5d8488d4bfc211a009
 
 **CDM Certificate Deck:** *<https://avenzacorp.sharepoint.com/sites/RegionalCDM/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FRegionalCDM%2FShared%20Documents%2FLazada%2F2%2E%20Certification%20Deck&viewid=4648f354%2D8327%2D4a82%2Db713%2Dbc856f81ae1c>*
 
-**CDM Inputted Target Requirements:** *<https://avenzacorp.sharepoint.com/:x:/r/sites/BAS/_layouts/15/Doc.aspx?sourcedoc=%7B5D7D7DFB-078C-4304-BE5F-20ECCB7E61C6%7D&file=cdm_input_20220805__Regional%20Lazada%20Metrics%202022.xlsx&action=default&mobileredirect=true>*
+**Point Target:** *<https://avenzacorp.sharepoint.com/:x:/r/sites/BAS/_layouts/15/Doc.aspx?sourcedoc=%7B5D7D7DFB-078C-4304-BE5F-20ECCB7E61C6%7D&file=cdm_input_20220805__Regional%20Lazada%20Metrics%202022.xlsx&action=default&mobileredirect=true>*
+
+Weekly Score data <https://avenzacorp.sharepoint.com/sites/RegionalCDM/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FRegionalCDM%2FShared%20Documents%2FLazada%2FLP%20Weekly%20Score%20Card%2F2022%2F2022%20Q3&viewid=4648f354%2D8327%2D4a82%2Db713%2Dbc856f81ae1c>
