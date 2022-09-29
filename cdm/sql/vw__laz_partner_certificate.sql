@@ -5,7 +5,8 @@ select year, quarter, region, type, QTD_POINT as metric_value
 from DWH.CDM_DATA.VW__REGION_QTD_POINT
 )
 
-, certificate_target as (
+,  certificate_target as (
+  
 select to_date(start_date,'dd/mm/yyyy') as start_date
 , to_date(END_DATE,'dd/mm/yyyy') as END_DATE
 , YEAR
@@ -24,23 +25,47 @@ from DWH.CDM_DATA.CERTIFICATE_TARGET
               , "TOTAL POINTS" as target_total_point
               , "QTD GMV" as target_qtd_gmv
               , "# LAZ MALL" as target_laz_mall
-    
+              , CERTIFICATION
         from certificate_target
 )
 
 
 , transformed_target as (
-          select distinct year, quarter, region, 'Target Total Points' as TYPE, target_total_point as metric_value
+          select distinct year, quarter, region, 'Target Total Points 3 star' as TYPE, target_total_point as metric_value
           from raw_transform_certificate_target
-          where target_total_point is not null
+          where target_total_point is not null and CERTIFICATION = '3 star'
 union all 
-          select distinct year, quarter, region, 'Target QTD GMV' as TYPE, target_qtd_gmv as metric_value
+          select distinct year, quarter, region, 'Target QTD GMV 3 star' as TYPE, target_qtd_gmv as metric_value
           from raw_transform_certificate_target
-          where target_qtd_gmv is not null
+          where target_qtd_gmv is not null and CERTIFICATION = '3 star'
 union all 
-          select distinct year, quarter, region, 'Target # Laz Mall' as TYPE, target_laz_mall as metric_value
+          select distinct year, quarter, region, 'Target # Laz Mall 3 star' as TYPE, target_laz_mall as metric_value
           from raw_transform_certificate_target
-          where target_laz_mall is not null
+          where target_laz_mall is not null and CERTIFICATION = '3 star'
+union all    
+          select distinct year, quarter, region, 'Target Total Points 2 star' as TYPE, target_total_point as metric_value
+          from raw_transform_certificate_target
+          where target_total_point is not null and CERTIFICATION = '2 star'
+union all 
+          select distinct year, quarter, region, 'Target QTD GMV 2 star' as TYPE, target_qtd_gmv as metric_value
+          from raw_transform_certificate_target
+          where target_qtd_gmv is not null and CERTIFICATION = '2 star'
+union all 
+          select distinct year, quarter, region, 'Target # Laz Mall 2 star' as TYPE, target_laz_mall as metric_value
+          from raw_transform_certificate_target
+          where target_laz_mall is not null and CERTIFICATION = '2 star'
+union all  
+          select distinct year, quarter, region, 'Target Total Points 1 star' as TYPE, target_total_point as metric_value
+          from raw_transform_certificate_target
+          where target_total_point is not null and CERTIFICATION = '1 star'
+union all 
+          select distinct year, quarter, region, 'Target QTD GMV 1 star' as TYPE, target_qtd_gmv as metric_value
+          from raw_transform_certificate_target
+          where target_qtd_gmv is not null and CERTIFICATION = '1 star'
+union all 
+          select distinct year, quarter, region, 'Target # Laz Mall 1 star' as TYPE, target_laz_mall as metric_value
+          from raw_transform_certificate_target
+          where target_laz_mall is not null and CERTIFICATION = '1 star'  
 )
 
 
@@ -73,15 +98,10 @@ union all   select year, cast(quarter as int) as quarter, region, type, metric_v
 union all   (select year, quarter, region, '# Stores' as type, count(distinct SELLER_SHORT_CODE) metric_value from DWH.CDM_DATA.vw__seller_weekly_data group by 1,2,3,4)  
   )
   
-
   
   
   select year, cast(quarter as varchar) as quarter, region, type, metric_value
   from consolidated a 
 
   )
-  
-  select * from DWH.CDM_DATA.VW__LAZ_PARTNER_CERTIFICATE
-  
-  
   
