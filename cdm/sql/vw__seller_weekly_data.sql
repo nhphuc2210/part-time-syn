@@ -1,20 +1,8 @@
 create or replace view DWH.CDM_DATA.vw__seller_weekly_data as (
   
 with point__target_by_week as (
-  with convert_quarter__to_week as (
-    select distinct REGION, LAZ_QUARTER, CALENDER_QUARTER, CALENDER_WEEK
-    from DWH.CDM_DATA.VW__LAZADA_CALENDER_BY_REGION
-  )
-  
-
-  select a.year, a.quarter, a.region, a.type, "MAX POINT"
-  , a.metrics, a.is_positive, a.excellent_criteria, a.EXCELLENT_POINTS, a.good_criteria, a.GOOD_POINTS, a.poor_point
-  , b.CALENDER_WEEK
-  , case when is_positive = 1 then EXCELLENT_CRITERIA else 1-EXCELLENT_CRITERIA end as EXCELLENT_CRITERIA_reverse
-  , case when is_positive = 1 then GOOD_CRITERIA else 1-GOOD_CRITERIA end as GOOD_CRITERIA_reverse
-  
-  from DWH.CDM_DATA.POINT_TARGET a 
-  left join convert_quarter__to_week b on a.region = b.region and a.quarter = b.LAZ_QUARTER  
+  select *
+  from dwh.cdm_data.vw__target_point_by_week
   )
 
 , score__region_level as (
@@ -52,7 +40,7 @@ select
 , EXCELLENT_CRITERIA, EXCELLENT_CRITERIA_reverse,EXCELLENT_POINTS
 , GOOD_CRITERIA, GOOD_CRITERIA_reverse, GOOD_POINTS
 , POOR_POINT
- 
+, TYPE_OF_METRIC
 
 from score__region_level a 
 left join point__target_by_week b 
@@ -65,34 +53,8 @@ where true
 )
 
 , get_seller_info as (
-    with get_unique_value as (
-    select 
-    trim("SELLER SHORT CODE") as seller_short_code
-
-    , ARRAY_UNIQUE_AGG(cbds) cbds
-    , ARRAY_UNIQUE_AGG(wh) wh
-    , ARRAY_UNIQUE_AGG(cs) cs
-    , ARRAY_UNIQUE_AGG(company) company
-    , ARRAY_UNIQUE_AGG("BUSINESS DIVISION") division
-    , ARRAY_UNIQUE_AGG("BUSINESS CLUSTER") cluster
-    , ARRAY_UNIQUE_AGG("SYNAGIE CATEGORY") category
-
-    from DWH.CDM_DATA.CDM__SELLER_CODE_MAPPING
-    group by 1
-    )
-  
-  select 
-    SELLER_SHORT_CODE
-  , ARRAY_TO_STRING(CBDS,', ') as CBDS
-  , ARRAY_TO_STRING(wh,', ') wh
-  , ARRAY_TO_STRING(cs,', ') cs
-  , ARRAY_TO_STRING(company,', ') company
-  , ARRAY_TO_STRING(division,', ') division
-  , ARRAY_TO_STRING(cluster,', ') cluster
-  , ARRAY_TO_STRING(category,', ') category
-
-  from get_unique_value
-  )
+select * from dwh.cdm_data.vw__seller_info
+)
   
   
 select 

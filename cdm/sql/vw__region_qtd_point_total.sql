@@ -1,10 +1,10 @@
-create or replace view DWH.CDM_DATA.VW__REGION_QTD_POINT as (
+create or replace view DWH.CDM_DATA.VW__REGION_QTD_POINT_TOTAL as (
 with
 raw_data as (
 select 
 year, quarter,region
 , metrics_mapping
-, TYPE
+, case when TYPE = 'Basic' then 'Basic Points' else TYPE end as TYPE
 , "MAX POINT"
 
 , avg(avg_value) as avg_value
@@ -42,8 +42,3 @@ group by 1,2,3,4,5
 select year, quarter,region, TYPE, "MAX POINT", point_of_type, LEAST(point_of_type, "MAX POINT") as qtd_point
 from point_of_type
 )
-
-
-
-
-

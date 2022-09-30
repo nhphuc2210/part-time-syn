@@ -5,6 +5,7 @@ raw_data as (
 select 
 year, quarter,region
 , metrics_mapping
+, type_of_metric
 , TYPE
 , "MAX POINT"
 
@@ -17,7 +18,7 @@ year, quarter,region
 , min(POOR_POINT) as POOR_POINT
 
 from DWH.CDM_DATA.vw__region__weekly_data
-group by 1,2,3,4,5,6
+group by 1,2,3,4,5,6,7
 )
 
 select a.*

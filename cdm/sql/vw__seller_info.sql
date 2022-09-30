@@ -11,6 +11,7 @@ create or replace view dwh.cdm_data.vw__seller_info as (
       , ARRAY_UNIQUE_AGG("BUSINESS DIVISION") division
       , ARRAY_UNIQUE_AGG("BUSINESS CLUSTER") cluster
       , ARRAY_UNIQUE_AGG("SYNAGIE CATEGORY") category
+      , ARRAY_UNIQUE_AGG("COUNTRY") region
 
       from DWH.CDM_DATA.CDM__SELLER_CODE_MAPPING
       group by 1
@@ -25,8 +26,8 @@ create or replace view dwh.cdm_data.vw__seller_info as (
     , ARRAY_TO_STRING(division,', ') division
     , ARRAY_TO_STRING(cluster,', ') cluster
     , ARRAY_TO_STRING(category,', ') category
-
+    , substring(SELLER_SHORT_CODE,1,2) as region
+  
     from get_unique_value
+    where seller_short_code is not null or seller_short_code <> ''
 )
-
-
