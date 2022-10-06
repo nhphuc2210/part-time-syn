@@ -94,6 +94,8 @@ if answer == 'y':
 
 from snowflake import connector
 from os import getenv
+from dotenv import load_dotenv
+load_dotenv()
 
 
 
@@ -108,9 +110,9 @@ class SnowflakeLoader:
 
    def get_cred(self):
        return {
-           "user": getenv("dwh_username","Natalie" ),
-           "password": getenv("dwh_password", "Natalie123"),
-           "account": getenv("dwh_account", "zb10016.ap-southeast-1"),
+           "user": getenv("dwh_username",getenv("dwh_username","input" ) ),
+           "password": getenv("dwh_password", getenv("dwh_password", "input")),
+           "account": getenv("dwh_account", getenv("dwh_account", "input"),
            "role": getenv("dwh_role",'X_BAS_BI_USER'),
            "database": getenv("dwh_database", "DWH"),
        }
